@@ -34,19 +34,7 @@ pipeline {
                     // For Linux: sh 'dotnet test --configuration Release --no-build --logger "trx;LogFileName=testresults.trx"'
                 }
             }
-            post {
-                always {
-                    // Publish test results
-                    publishHTML(target: [
-                        allowMissing: false,
-                        alwaysLinkToLastBuild: false,
-                        keepAll: true,
-                        reportDir: 'TestResults',
-                        reportFiles: 'testresults.trx',
-                        reportName: 'Test Results'
-                    ])
-                }
-            }
+            
         }
     }
     
